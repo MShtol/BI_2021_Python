@@ -9,6 +9,7 @@ def transcribe(seq,nucleo):
         d=dna_rnadict
     else:
         d=rna_dnadict
+        print("In fact it's a reverse transcription, seq is RNA")
     return "".join([d[seq[i]] for i in range(len(seq))])
 
 def reverse(seq):
@@ -36,17 +37,17 @@ while command!='exit':
     mask=[char.islower() for char in raw_sequence]
     sequence=raw_sequence.upper()
     
-    dna, rna = 1,1
+    dna, rna = T,T
     nucleo=""
     for char in sequence:
         if char not in dna_dnadict:
-            dna=0
+            dna=F
         if char not in rna_rnadict:
-            rna=0
+            rna=F
             
-    if dna==1:
+    if dna==T:
         nucleo='dna'
-    elif rna==1:
+    elif rna==T:
         nucleo='rna'
     else:
         print("not a nucleic acid")
