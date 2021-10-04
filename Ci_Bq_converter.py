@@ -1,18 +1,24 @@
-def Ci_Bq(x):
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[5]:
+
+
+def Ci_Becq(x):
     print(x * 3700000000, 'Becqerels')
 
 
-def Bq_Ci(x):
+def Becq_Ci(x):
     print(x / 3700000000, 'Curie')
 
 
 while True:
-    number = float(input('Number: '))
-    unit1_unit2 = input('print units for conversion (Ci_Bq or Bq_Ci): ')
-    if unit1_unit2 == 'Ci_Bq':
-        Ci_Bq(number)
-    elif unit1_unit2 == 'Bq_Ci':
-        Bq_Ci(number)
+    number = int(input('Number: '))
+    unit1_unit2 = input('print units for conversion (Ci_Becq or Becq_Ci): ')
+    if unit1_unit2 == 'Ci_Becq':
+        Ci_Becq(number)
+    elif unit1_unit2 == 'Becq_Ci':
+        Becq_Ci(number)
     else:
         print('Sorry, unknown units')
     if input('Type "stop" to stop it') == 'stop':
