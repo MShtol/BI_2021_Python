@@ -50,6 +50,7 @@ while command != 'exit':
         nucleo = 'dna'
     elif rna == True:
         nucleo = 'rna'
+
     else:
         print("not a nucleic acid")
         continue
