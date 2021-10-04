@@ -1,17 +1,17 @@
-def Ci_Bq(x):
+def Ci_Beq(x):
     print(x * 3700000000, 'Becqerels')
 
 
-def Bq_Ci(x):
+def Beq_Ci(x):
     print(x / 3700000000, 'Curie')
 
 
 while True:
     number = int(input('Number: '))
-    unit1_unit2 = input('print units for conversion (Ci_Bq or Bq_Ci): ')
-    if unit1_unit2 == 'Ci_Bq':
+    unit1_unit2 = input('print units for conversion (Ci_Beq or Beq_Ci): ')
+    if unit1_unit2 == 'Ci_Beq':
         Ci_Bq(number)
-    elif unit1_unit2 == 'Bq_Ci':
+    elif unit1_unit2 == 'Beq_Ci':
         Bq_Ci(number)
     else:
         print('Sorry, unknown units')
