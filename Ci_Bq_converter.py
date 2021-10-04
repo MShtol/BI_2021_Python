@@ -7,7 +7,7 @@ def Bq_Ci(x):
 
 
 while True:
-    number = float(input('Number: '))
+    number = int(input('Number: '))
     unit1_unit2 = input('print units for conversion (Ci_Bq or Bq_Ci): ')
     if unit1_unit2 == 'Ci_Bq':
         Ci_Bq(number)
