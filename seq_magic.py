@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 def transcribe(seq, nucleo):
     if nucleo == "dna":
         d = dna_rnadict
@@ -46,9 +40,9 @@ while command != 'exit':
             dna = False
         if char not in rna_rnadict:
             rna = False
-    if dna == True:
+    if dna is True:
         nucleo = 'dna'
-    elif rna == True:
+    elif rna is True:
         nucleo = 'rna'
     else:
         print("not a nucleic acid")
@@ -70,4 +64,3 @@ while command != 'exit':
     else:
         print("Unknown command")
     print(res)
-
