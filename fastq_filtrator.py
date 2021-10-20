@@ -8,12 +8,12 @@
 # и распарсить чем-то вроде argparse,  чтобы было единообразно и аккуратно
 import os
 
-def main(input_fastq, output_file_prefix, gc_bounds = [0, 100],
-         length_bounds = [0, 2 ** 32], quality_threshold = 0,
-        save_filtered = False):
-    data = open(input_fastq,'r')
+def main(input_fastq, output_file_prefix, gc_bounds=[0, 100],
+         length_bounds=[0, 2 ** 32], quality_threshold=0,
+        save_filtered=False):
+    data=open(input_fastq,'r')
     if save_filtered == False:
-        out = open(output_file_prefix+'.fastq','w')
+        out=open(output_file_prefix+'.fastq','w')
     else:
         out = open(output_file_prefix+'_passed.fastq','w')
         out2 = open(output_file_prefix+'_failed.fastq','w')
@@ -36,22 +36,22 @@ def main(input_fastq, output_file_prefix, gc_bounds = [0, 100],
     out.close()
     if save_filtered == True:
         out2.close()
-        
-
-
 
 
 # Count GC comtent for read
 def gc_count(seq):
     return (seq.count('G')+seq.count('C'))/len(seq)*100
 
+
 # Read read from file
 def pull_read(data):
     return [data.readline().strip() for i in range(4)]
 
+
 # calculate mean  quality
 def mean_qual(qual):
     return sum([ord(i) for i in qual])/len(qual)-33
+
 
 # Conditions for adding boundaries from input to kwargs
 def add_gc_bound():
@@ -78,7 +78,8 @@ def add_gc_bound():
             print("Strange input2, default kept")       
     else:
         print("Strange input3, default kept") 
-        
+
+
 def add_len_bound():
     global length_bounds
     if len(length_bounds) == 0:
@@ -103,6 +104,7 @@ def add_len_bound():
             print("Strange input, default kept")       
     else:
         print("Strange input, default kept") 
+
 
 def add_qual_threshhold():
     global quality_threshold
