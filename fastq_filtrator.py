@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[110]:
+
+
 # Наверное, весь код проверяющий инпут можно было засунуть в одну функцию
 # и распарсить чем-то вроде argparse,  чтобы было единообразно и аккуратно
 import os
@@ -122,12 +125,12 @@ if __name__ == '__main__':
     if len(path_dir) > 0:
         assert os.path.exists(path_dir), 'Wrong dirs for your output:  '+path_dir
 # passing gc_bounds
-    gc_bounds = input('Enter upper or both boundaries for GC-filtration.
-                      \nPass single value, two values separated by space or no values to keep default:  ').split()
+    gc_bounds = input('Enter upper or both boundaries for GC-filtration.\n
+    Pass single value, two values separated by space or no values to keep default:  ').split()
     add_gc_bound()
 # passing length bounds
-    length_bounds = input('Enter upper or both boundaries for sequence length.
-                          \nPass single value, two values separated by space or no values to keep default:  ').split()
+    length_bounds = input('Enter upper or both boundaries for sequence length.\n
+    Pass single value, two values separated by space or no values to keep default:  ').split()
     add_len_bound()
 # passing quality threshhold
     quality_threshold = input("Enter quality threshhold:  ").strip()
