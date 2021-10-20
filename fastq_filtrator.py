@@ -1,22 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[110]:
-
-
 # Наверное, весь код проверяющий инпут можно было засунуть в одну функцию
 # и распарсить чем-то вроде argparse,  чтобы было единообразно и аккуратно
 import os
 
 def main(input_fastq, output_file_prefix, gc_bounds=[0, 100],
          length_bounds=[0, 2 ** 32], quality_threshold=0,
-        save_filtered=False):
-    data=open(input_fastq,'r')
-    if save_filtered == False:
-        out=open(output_file_prefix+'.fastq','w')
+         save_filtered=False):
+    data = open(input_fastq, 'r')
+    if save_filtered is False:
+        out = open(output_file_prefix+'.fastq', 'w')
     else:
-        out = open(output_file_prefix+'_passed.fastq','w')
-        out2 = open(output_file_prefix+'_failed.fastq','w')
+        out = open(output_file_prefix+'_passed.fastq', 'w')
+        out2 = open(output_file_prefix+'_failed.fastq', 'w')
     while True:
         read = pull_read(data)
         if len(read[0]) == 0:
@@ -25,16 +22,16 @@ def main(input_fastq, output_file_prefix, gc_bounds=[0, 100],
         read_gc = gc_count(seq)
         read_len = int(info.split('=')[-1])
         read_qual = mean_qual(qual)
-        if  ((gc_bounds[0] <=read_gc <= gc_bounds[1])
-             & (length_bounds[0] <= read_len <= length_bounds[1]) 
+        if ((gc_bounds[0] <= read_gc <= gc_bounds[1])
+             & (length_bounds[0] <= read_len <= length_bounds[1])
              & (read_qual > quality_threshold)):
             [out.write(i+'\n') for i in read]
-        elif save_filtered == True:
+        elif save_filtered is True:
             [out2.write(i+'\n') for i in read]
 
     data.close()
     out.close()
-    if save_filtered == True:
+    if save_filtered is True:
         out2.close()
 
 
@@ -59,25 +56,25 @@ def add_gc_bound():
     if len(gc_bounds) == 0:
         print('Default kept')
     elif len(gc_bounds) == 1:
-        try: 
+        try:
             gc_bounds = [0, float(gc_bounds[0])]
             if 0 <= gc_bounds[1]:
                 kwargs['gc_bounds'] = gc_bounds
             else:
-                print("Very wrong numbers! Default kept") 
-        except: 
-            print("Strange input1, default kept")
+                print("Very wrong numbers! Default kept")
+        except Exception:
+            print("Strange input, default kept")
     elif len(gc_bounds) == 2:
         try:
             gc_bounds = [float(i) for i in gc_bounds]
             if 0 <= gc_bounds[0] <= gc_bounds[1]:
                 kwargs['gc_bounds'] = gc_bounds
             else:
-                print("Very wrong numbers! Default kept") 
-        except:
-            print("Strange input2, default kept")       
+                print("Very wrong numbers! Default kept")
+        except Exception:
+            print("Strange input, default kept")
     else:
-        print("Strange input3, default kept") 
+        print("Strange input, default kept")
 
 
 def add_len_bound():
@@ -85,13 +82,13 @@ def add_len_bound():
     if len(length_bounds) == 0:
         print('Default kept')
     elif len(length_bounds) == 1:
-        try: 
+        try:
             length_bounds = [0, int(length_bounds[0])]
             if 0 <= length_bounds[1]:
                 kwargs['length_bounds'] = length_bounds
             else:
-                print("Very wrong numbers! Default kept") 
-        except: 
+                print("Very wrong numbers! Default kept")
+        except Exception:
             print("Strange input, default kept")
     elif len(length_bounds) == 2:
         try:
@@ -99,23 +96,23 @@ def add_len_bound():
             if 0 <= length_bounds[0] <= length_bounds[1]:
                 kwargs['length_bounds'] = length_bounds
             else:
-                print("Very wrong numbers! Default kept") 
-        except:
-            print("Strange input, default kept")       
+                print("Very wrong numbers! Default kept")
+        except Exception:
+            print("Strange input, default kept")
     else:
-        print("Strange input, default kept") 
+        print("Strange input, default kept")
 
 
 def add_qual_threshhold():
     global quality_threshold
     try:
         kwargs['quality_threshold'] = int(quality_threshold)
-    except:
-        print("Strange input, default kept") 
-    
-    
-if __name__=='__main__':
-    kwargs ={}
+    except Exception:
+        print("Strange input, default kept")
+
+
+if __name__ == '__main__':
+    kwargs = {}
 #     passing input path
     input_fastq = input('Enter path for input file:  ')
     assert os.path.exists(input_fastq), "No such file at, "+input_fastq
@@ -124,21 +121,22 @@ if __name__=='__main__':
     path_dir = os.path.dirname(output_file_prefix)
     if len(path_dir) > 0:
         assert os.path.exists(path_dir), 'Wrong dirs for your output:  '+path_dir
-# passing gc_bounds        
-    gc_bounds = input('Enter upper or both boundaries for GC-filtration.\nPass single value, two values separated by space or no values to keep default:  ').split()
+# passing gc_bounds
+    gc_bounds = input('Enter upper or both boundaries for GC-filtration.
+                      \nPass single value, two values separated by space or no values to keep default:  ').split()
     add_gc_bound()
-# passing length bounds   
-    length_bounds = input('Enter upper or both boundaries for sequence length.\nPass single value, two values separated by space or no values to keep default:  ').split()
+# passing length bounds
+    length_bounds = input('Enter upper or both boundaries for sequence length.
+                          \nPass single value, two values separated by space or no values to keep default:  ').split()
     add_len_bound()
 # passing quality threshhold
     quality_threshold = input("Enter quality threshhold:  ").strip()
     add_qual_threshhold()
 # Do we want to save filtered off?
     save_filtered = input('Save filtered off (y,n):  ').strip().lower()
-    if save_filtered =='y':
+    if save_filtered == 'y':
         kwargs['save_filtered'] = True
     else:
-        print('Default False kept')      
+        print('Default False kept')
 # Finaly, main!
     main(input_fastq, output_file_prefix, **kwargs)
-
