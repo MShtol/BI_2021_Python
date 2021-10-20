@@ -27,9 +27,9 @@ def main(input_fastq, output_file_prefix, gc_bounds=[0, 100],
         read_len = int(info.split('=')[-1])
         read_qual = mean_qual(qual)
         if ((gc_bounds[0] <= read_gc <= gc_bounds[1])
-            & (length_bounds[0] <= read_len <= length_bounds[1])
-            & (read_qual > quality_threshold)):
-                [out.write(i+'\n') for i in read]
+                & (length_bounds[0] <= read_len <= length_bounds[1])
+                & (read_qual > quality_threshold)):
+            [out.write(i+'\n') for i in read]
         elif save_filtered is True:
             [out2.write(i+'\n') for i in read]
 
