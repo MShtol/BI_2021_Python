@@ -13,7 +13,10 @@ def Becq_Ci(x):
 
 
 while True:
-    number = int(input('Number: '))
+    number = float(input('Number: '))
+    if number < 0:
+        print("Why so negative?")
+        continue
     unit1_unit2 = input('print units for conversion (Ci_Becq or Becq_Ci): ')
     if unit1_unit2 == 'Ci_Becq':
         Ci_Becq(number)
