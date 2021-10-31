@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[2]:
 
 
 def Ci_Becq(x):
@@ -13,7 +13,10 @@ def Becq_Ci(x):
 
 
 while True:
-    number = int(input('Number: '))
+    number = float(input('Number: '))
+    if number < 0:
+        print('There are no "negative" radiation. Absolute value is used instead')
+        number = abs(number)
     unit1_unit2 = input('print units for conversion (Ci_Becq or Becq_Ci): ')
     if unit1_unit2 == 'Ci_Becq':
         Ci_Becq(number)
