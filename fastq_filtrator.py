@@ -24,7 +24,7 @@ def main(input_fastq, output_file_prefix, gc_bounds=[0, 100],
             break
         info, seq, _, qual = read
         read_gc = gc_count(seq)
-        read_len = int(info.split('=')[-1])
+        read_len = len(seq)
         read_qual = mean_qual(qual)
         if ((gc_bounds[0] <= read_gc <= gc_bounds[1])
                 & (length_bounds[0] <= read_len <= length_bounds[1])
