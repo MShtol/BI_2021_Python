@@ -41,7 +41,7 @@ def main(input_fastq, output_file_prefix, gc_bounds=[0, 100],
 
 # Count GC comtent for read
 def gc_count(seq):
-    return (seq.count('G')+seq.count('C'))/len(seq)*100
+    return (seq.upper().count('G')+seq.upper().count('C'))/len(seq)*100
 
 
 # Read read from file
