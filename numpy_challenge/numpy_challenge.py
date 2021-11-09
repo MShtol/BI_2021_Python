@@ -4,7 +4,7 @@ import numpy as np
 def create_arrays():
     x = np.zeros(10)
     y = np.random.randn(100)
-    z = np.full(shape=(42, 42 ,42), fill_value=42)
+    z = np.full(shape=(42, 42, 42), fill_value=42)
     return x, y, z
 
 
