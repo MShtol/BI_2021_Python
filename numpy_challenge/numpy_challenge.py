@@ -1,25 +1,19 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[117]:
-
-
 import numpy as np
 
 
 def create_arrays():
     x = np.zeros(10)
     y = np.random.randn(100)
-    z = np.full(shape = (42,42,42),fill_value = 42)
-    return x,y,z
+    z = np.full(shape=(42, 42 ,42), fill_value=42)
+    return x, y, z
 
 
 def multiply_matrices(m_list):
     if not multiplication_check(m_list):
         return
     res_m = m_list[0]
-    for i in range(1,len(m_list)):
-        res_m = matrix_multiplication(res_m,m_list[i])
+    for i in range(1, len(m_list)):
+        res_m = matrix_multiplication(res_m, m_list[i])
     return res_m
 
 
@@ -36,19 +30,20 @@ def multiplication_check(m_list):
     return check
 
 
-def compute_2d_distance(a1,a2):
-    dist = numpy.linalg.norm(a1-a2)
+def compute_2d_distance(a1, a2):
+    dist = np.linalg.norm(a1-a2)
     return dist
 
 
-def compute_multidimensional_distance(a1,a2):
-    dist = numpy.linalg.norm(a1-a2)
+def compute_multidimensional_distance(a1, a2):
+    dist = np.linalg.norm(a1-a2)
     return dist
+
 
 def compute_pair_distances(a):
-    l = len(a)
-    dist = np.zeros(shape = (l,l))
-    for i in range(l):
-        for j in range(l):
-            dist[i,j] = numpy.linalg.norm(a[i]-a[j])
+    a_dim = len(a)
+    dist = np.zeros(shape=(a_dim, a_dim))
+    for i in range(a_dim):
+        for j in range(a_dim):
+            dist[i, j] = np.linalg.norm(a[i]-a[j])
     return dist
