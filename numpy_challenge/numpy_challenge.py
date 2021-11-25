@@ -45,5 +45,5 @@ def compute_pair_distances(a):
     dist = np.zeros(shape=(a_dim, a_dim))
     for i in range(a_dim):
         for j in range(a_dim):
-dist[i, j] = compute_multidimensional_distance(a[i], a[j])
+            dist[i, j] = compute_multidimensional_distance(a[i], a[j])
     return dist
