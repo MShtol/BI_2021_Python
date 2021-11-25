@@ -30,7 +30,7 @@ distr = {}
 print(len(unique_words))
 for i in unique_words:
     length = len(i)
-    if l in distr:
+    if length in distr:
         distr[length] += 1
     else:
         distr[length] = 1
