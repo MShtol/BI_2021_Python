@@ -6,9 +6,8 @@ def sequential_map(*args):
     @ return - processed list
     """
     *funcs, values = args
-    func_chain()
-    for func in funcs:
-        values = [_ for _ in map(func, values)]
+    combo_func = func_chain(*funcs)
+    values = [_ for _ in map(combo_func, values)]
     return values
 
 
@@ -46,8 +45,22 @@ def func_chain(*funcs):
     @ param funcs - tupple of functions
     @ return - combined function
     """
-    def res_func(value):
+    def res_func(value):  # Use nested function in order to assign without execution.
         for func in funcs:
             value = func(value)
         return value
     return res_func
+
+def multiple_partial(*funcs, **kwargs):
+    """
+    Returns list of functions with partially definde arguments.
+    @param funcs - tuple of functions
+    @param kwargs - dict of pararmeters to be defined
+    """
+    list_part_func = []
+    for func in funcs:
+        def partial_func(value, func=func):  # "func=func" - workaround for "late binding" python issue.
+            result = func(value, **kwargs)
+            return result
+        list_part_func.append(partial_func)
+    return list_part_func
