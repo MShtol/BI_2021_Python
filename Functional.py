@@ -51,6 +51,7 @@ def func_chain(*funcs):
         return value
     return res_func
 
+
 def multiple_partial(*funcs, **kwargs):
     """
     Returns list of functions with partially definde arguments.
