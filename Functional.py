@@ -28,7 +28,7 @@ def conditional_reduce(bool_func, func, values):
     """
     Returns value calculated be reduce function analog from values that pass filter
     with multiple boolean functions.
-    @ param bool_func - tupple of boolean functions
+    @ param bool_func - tuple of boolean functions
     @ param func - func to apply to list
     @ param values - list of values to be reduced
     @ return - result of reduction of filtered list
