@@ -7,7 +7,7 @@ def sequential_map(*args):
     """
     *funcs, values = args
     combo_func = func_chain(*funcs)
-    values = [_ for _ in map(combo_func, values)]
+    values = list(map(combo_func, values)
     return values
 
 
