@@ -2,6 +2,7 @@
 import argparse
 import sys
 
+
 def count_lines(file):
     '''
     Function returns number of lines in file.
