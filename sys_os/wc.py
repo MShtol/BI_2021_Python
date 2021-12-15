@@ -35,7 +35,7 @@ def main(file, flags):
             if value:
                 results.append(key(file))
     else:
-        results = count_lines(file), count_words(file), count_bytes(file)        
+        results = count_lines(file), count_words(file), count_bytes(file)
     return results
 
 
@@ -47,7 +47,8 @@ if __name__ == "__main__":
     parser.add_argument('file', help="file name", type=argparse.FileType('r', encoding='UTF-8'),
                         default=sys.stdin)
     args = parser.parse_args()
-    flags = {count_lines:args.lines, count_words:args.words,count_bytes:args.bytes}
+    flags = {count_lines: args.lines, count_words: args.words, count_bytes: args.bytes}
     file = args.file.read()
     output = main(file, flags)
     sys.stdout.write("\t".join(output))
+    
