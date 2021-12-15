@@ -51,4 +51,3 @@ if __name__ == "__main__":
     file = args.file.read()
     output = main(file, flags)
     sys.stdout.write("\t".join(output))
-    
