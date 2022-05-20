@@ -47,7 +47,6 @@ class Mutato:
         self.path = path
         self.fastag = fasta_reader(path)
 
-
     def __iter__(self):
         return self
 
