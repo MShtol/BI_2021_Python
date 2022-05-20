@@ -2,7 +2,6 @@
 # coding: utf-8
 
 # # Iterrators are beautifull. Generators - even more beautifull
-# 
 
 # In[1]:
 
@@ -30,7 +29,7 @@ def fasta_reader(path: str):
                 id_ = line
                 value = ''
             else:
-                value += line     
+                value += line
 
 
 # ## Mutato class
@@ -40,9 +39,9 @@ def fasta_reader(path: str):
 
 class Mutato:
     """This class iterates over fasta file and randomly modifies sequences"""
-    
+
     nucleo = "ACGT"  # Possible nucleotides for substitutions
-    
+
     def __init__(self, path):
         """This function initializes object with path to fasta file"""
         self.path = path
@@ -51,7 +50,6 @@ class Mutato:
 
     def __iter__(self):
         return self
-
 
     def __next__(self):
         """This function returns next item of iterator"""
@@ -62,8 +60,7 @@ class Mutato:
             id_, seq = next(self.fastag)
         seq = self.genetic_lottery(seq)
         return id_, seq
-    
-    
+
     def genetic_lottery(self, seq: str):
         """This function recieves sequence and decides to apply
         every of 5 types of mutations with 0.5 chance
@@ -81,18 +78,16 @@ class Mutato:
             seq = self.duplication(seq)
         return seq
 
-
     def substitution(self, seq: str):
         """At randomly chosen position of sequence one nucleotide is
         replaced with a random one from A,C,G and T
         Returns modified sequence
         """
         seq = list(seq)
-        pos = random.randint(0,len(seq)-1)
+        pos = random.randint(0, len(seq)-1)
         seq[pos] = random.choice(self.nucleo)
         return ''.join(seq)
 
-    
     def deletion(self, seq: str):
         """Deletes chunk of sequence of random size
         Returns modified sequence
@@ -102,18 +97,16 @@ class Mutato:
         seq = seq[:start] + seq[end:]
         return seq
 
-
     def insertion(self, seq: str):
         """inserts random combination of nucletides of random size
         in random place of sequence.
         Returns modified sequence
         """
         point = random.randrange(len(seq))
-        insert_size = random.randint(1,42)
-        insert = ''.join(random.choices(self.nucleo,k=insert_size))
+        insert_size = random.randint(1, 42)
+        insert = ''.join(random.choices(self.nucleo, k=insert_size))
         seq = seq[:point] + insert + seq[point:]
         return seq
-
 
     def inversion(sekf, seq: str):
         """Inverts random chunk of sequence
@@ -123,7 +116,6 @@ class Mutato:
         end = random.randint(start, len(seq)-1)
         seq = seq[:start] + seq[end:start:-1] + seq[end:]
         return seq
-
 
     def duplication(self, seq: str):
         """Duplicates random chunk of sequence, inserting its copy right after it.
@@ -142,7 +134,7 @@ class Mutato:
 
 def iter_append(iterable, item):
     """
-    This generator iterates over one iterable, 
+    This generator iterates over one iterable,
     and after that yields item
     """
     yield from iterable  # Really cool stuff! Consecutive iteration
@@ -169,10 +161,6 @@ def nested_list_unpacker(lst: list):
                 yield elem
     unpacked = list(unpack_gen(lst))
     return unpacked
-            
-
-test_list = [1, 2, 3, [1, 2, [3, 4, []], [1], [], 12, 3], [1, [5, 6]]]
-print(nested_list_unpacker(test_list))
 
 
 # In[6]:
