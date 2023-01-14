@@ -22,3 +22,7 @@ quality_threshold - read with thi value or above will be kept
 
 save_filtered - y/n if you want to have file with filtrated off values
 
+### Functional.py
+Some function to explore functional programming in Python.
+Contains example of use of map(), filter() in form of their custom modifications
+
