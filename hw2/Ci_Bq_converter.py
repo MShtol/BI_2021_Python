@@ -1,14 +1,14 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 def Ci_Becq(x):
+    """
+    This function converts becqerels to curies
+    """
     print(x * 3700000000, 'Becqerels')
 
 
 def Becq_Ci(x):
+    """
+    This function converts becqerels to curies
+    """
     print(x / 3700000000, 'Curie')
 
 

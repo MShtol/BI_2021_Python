@@ -2,7 +2,7 @@
 
 ### hw1 - basic operations with nucleic acid sequences
 
-### hw2
+### hw2 - Curies-becqerels converter
 ### hw3
 ### hw4
 ### hw5
@@ -25,4 +25,3 @@ save_filtered - y/n if you want to have file with filtrated off values
 ### Functional.py
 Some function to explore functional programming in Python.
 Contains example of use of map(), filter() in form of their custom modifications
-
