@@ -1,12 +1,12 @@
-### seq_magic
-Script commands are passed on the Do step
-exit — exit script
-transcribe — transcribe sequence. If it's reverse transcription, corresponding message will be printed
-reverse — return reverse sequense
-complement — print complement sequense
-reverse complement — print reversed compliment sequense
+## Python study repo.
 
-On a Seq step input your sequense
+### hw1 - basic operations with nucleic acid sequences
+
+### hw2
+### hw3
+### hw4
+### hw5
+
 
 ### fastq-filtrator
 It's a script to filter read from fastq files by length, quality and GC content
