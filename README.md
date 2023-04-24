@@ -5,7 +5,9 @@
 ### basics2 - Basic work with input on example of Curies-becqerels unit converter
 
 ### FASTQ-filtrator - usage of functions and try-except syntax on example of scripts that reads and filters FASTQ input data
-### hw4
+
+### numpy_basics - basic numpy syntax. Creating, multiplying arrays, calulating distances
+
 ### hw5
 
 
