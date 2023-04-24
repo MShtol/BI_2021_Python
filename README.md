@@ -24,3 +24,7 @@ Bsic usage of regular expressions in Python
 ### Functional.py
 Some function to explore functional programming in Python.
 Contains example of use of map(), filter() in form of their custom modifications
+
+
+### numpy_random
+Generation of random arrays with numpy and visulization with matplotlib
