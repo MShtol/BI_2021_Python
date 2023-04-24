@@ -1,8 +1,9 @@
 ## Python study repo.
 
-### hw1 - basic operations with nucleic acid sequences
+### Basics1 - Basic Python syntax on example of operations with nucleic acid sequences
 
-### hw2 - Curies-becqerels converter
+### Basics2 - Basic work with input on example of Curies-becqerels unit converter
+
 ### hw3
 ### hw4
 ### hw5
