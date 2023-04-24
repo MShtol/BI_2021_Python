@@ -1,27 +1,13 @@
 ## Python study repo.
 
-### Basics1 - Basic Python syntax on example of operations with nucleic acid sequences
+### basics1 - Basic Python syntax on example of operations with nucleic acid sequences
 
-### Basics2 - Basic work with input on example of Curies-becqerels unit converter
+### basics2 - Basic work with input on example of Curies-becqerels unit converter
 
-### hw3
+### FASTQ-filtrator - usage of functions and try-except syntax on example of scripts that reads and filters FASTQ input data
 ### hw4
 ### hw5
 
-
-### fastq-filtrator
-It's a script to filter read from fastq files by length, quality and GC content
-input_fastq - path for the input file
-
-output_file_prefix - prefix for the output file. If save_filtered is False, will create prefix + '.fastq' postfix file. Otherwise will create two files with '_passed.fastq' and '_failed.fastq' postfixes.
-
-gc_bounds - upper or both boundaries for GC-filtration. Pass single value, two values separated by space or no values to keep default.
-
-length_bounds - upper or both boundaries for sequence length. Pass single value, two values separated by space or no values to keep default.
-
-quality_threshold - read with thi value or above will be kept
-
-save_filtered - y/n if you want to have file with filtrated off values
 
 ### Functional.py
 Some function to explore functional programming in Python.
