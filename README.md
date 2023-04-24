@@ -28,3 +28,7 @@ Contains example of use of map(), filter() in form of their custom modifications
 
 ### numpy_random
 Generation of random arrays with numpy and visulization with matplotlib
+
+
+### functional
+Custopm implementations of map(), reduce(), filter(), partial()
