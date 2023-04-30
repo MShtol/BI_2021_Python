@@ -31,4 +31,20 @@ Generation of random arrays with numpy and visulization with matplotlib
 
 
 ### functional
-Custopm implementations of map(), reduce(), filter(), partial()
+Custom implementations of map(), reduce(), filter(), partial()
+
+
+### sys_os
+Working with stdin. stdout via sys, os, argparse libs on example of standart unix tools replicas.
+
+
+### pandas
+
+
+### Classes
+
+
+### Multiprocessing
+
+
+### SQL and datvases

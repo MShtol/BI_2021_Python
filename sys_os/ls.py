@@ -10,12 +10,11 @@ def list_content(dir_path, flag):
     @params dir_path - directory of interest
     @params flag - flag which determins if include hidden files
     '''
-    os.chdir(dir_path)
-    all_files = os.listdir()
+    all_files = os.listdir(dir_path)
     if flag:
         return all_files
     else:
-        return [i for i in all_files if not i.startswith('.')]
+        return [file for file in all_files if not file.startswith('.')]
 
 
 if __name__ == "__main__":
@@ -26,4 +25,4 @@ if __name__ == "__main__":
                         default=os.getcwd())
     args = parser.parse_args()
     output = list_content(args.dir_path, args.all)
-    sys.stdout.write(' '.join(output))
+    sys.stdout.write('\n'.join(output))
