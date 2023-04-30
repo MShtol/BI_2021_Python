@@ -43,8 +43,7 @@ Elements of OOP. Creation and usage of Classes, class inheritance, abstract clas
 
 
 ### pandas
-
-
+Data selection. processing and plotting with panad and matplotlib.
 
 
 
