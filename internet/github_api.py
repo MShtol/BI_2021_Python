@@ -60,13 +60,15 @@ def get_user_repositories(username):
     return repos
 
 
-def list_repository_contents(username, repository, repository_path = None):
+def list_repository_contents(username, repository, repository_path=None:
     """
     This function accepts GitHub username, and repo name and returns it's content list.
     @ return: repos, list of dict
     """
-    # repository_path - spare variable
-    url = 'https://github.com/' + username + '/' + repository
+    if repository_path:
+        url = f'https://github.com/{username}/{repository}'
+    else:
+        url = f'https://github.com/{username}/{repository}/tree/branch/{repository_path}'
     req = requests.get(url)
     soup = BeautifulSoup(req.content)
     rep_cont = []
