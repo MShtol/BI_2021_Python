@@ -49,6 +49,10 @@ Data selection. processing and plotting with panad and matplotlib.
 Requests, stdout/stderr redirecting on example of cutom GitHub api and telegram bot logger,
 
 
+### sql_database
+Construction of database from excel file with methods for adding/deleting/selecting objects from database.
+
+
 ### Multiprocessing
 
 
