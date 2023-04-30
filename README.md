@@ -52,6 +52,9 @@ Requests, stdout/stderr redirecting on example of cutom GitHub api and telegram 
 ### sql_database
 Construction of database from excel file with methods for adding/deleting/selecting objects from database.
 
+### iterr
+Suctom iterators and generators in Python.
+
 
 ### Multiprocessing
 

@@ -7,3 +7,4 @@ In this homework you can find some implementation of iterators and generators in
 2. class Mutato - class that can itarate over fasta file and return mutated sequences.
 3. iter_append(iterable, item) - generator that returns at first iterrates over iterrable and after that returns item
 4. nested_list_unpacker(lst: list) - this function can unpack (flatten) lists of any depth. With respect to maximum iteration depth, of course. Returns flattened list
+5. Custom dict, that returns key and value while iterating over it
