@@ -38,10 +38,14 @@ Custom implementations of map(), reduce(), filter(), partial()
 Working with stdin. stdout via sys, os, argparse libs on example of standart unix tools replicas.
 
 
+### Classes
+Elements of OOP. Creation and usage of Classes, class inheritance, abstract classe and methods.
+
+
 ### pandas
 
 
-### Classes
+
 
 
 ### Multiprocessing
