@@ -45,6 +45,7 @@ Elements of OOP. Creation and usage of Classes, class inheritance, abstract clas
 ### pandas
 Data selection. processing and plotting with panad and matplotlib.
 
+
 ### internet
 Requests, stdout/stderr redirecting on example of cutom GitHub api and telegram bot logger,
 
@@ -52,11 +53,16 @@ Requests, stdout/stderr redirecting on example of cutom GitHub api and telegram 
 ### sql_database
 Construction of database from excel file with methods for adding/deleting/selecting objects from database.
 
+
 ### iterr
-Suctom iterators and generators in Python.
+Custom iterators and generators in Python.
+
+
+### wrappers
+Usage of custom and existing (`staticmethod`, `dataclass`, `lru_cache`) wrappers. Custom context manager. 
 
 
 ### Multiprocessing
 
 
-### SQL and datvases
+
