@@ -62,7 +62,6 @@ Custom iterators and generators in Python.
 Usage of custom and existing (`staticmethod`, `dataclass`, `lru_cache`) wrappers. Custom context manager. 
 
 
-### Multiprocessing
-
-
+### Multiprocessing & Nultithreading
+Here you can find python implementations of multiprocessing and multithreading via standart libraries.
 
