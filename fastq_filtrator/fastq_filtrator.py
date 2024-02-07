@@ -1,12 +1,12 @@
 # Maybe, I should've used argparse and optimize and compactize all checks.
-# Using custom Class whole task could be written with much more elegance 
+# Using custom Class whole task could be written with much more elegance
 import os
 
 
 def main(input_fastq, output_file_prefix, gc_bounds=(0, 100),
          length_bounds=(0, 2 ** 32), quality_threshold=0,
          save_filtered=False):
-    fastq_file = open(input_fastq, 'r') # Not a good practice
+    fastq_file = open(input_fastq, 'r')  # Not a good practice
     if save_filtered is False:
         out = open(output_file_prefix+'.fastq', 'w')
     else:
@@ -57,7 +57,7 @@ def pull_read(fastq_file):
 # calculate mean  quality
 def mean_qual(qual):
     """Calculates average quality of fastq record
-    :param str qual: string with qualities of reading for corresponding nucleotides 
+    :param str qual: string with qualities of reading for corresponding nucleotides
     :returns: avearge quality of record
     :rtype: float
     """
@@ -69,7 +69,7 @@ def add_gc_bound():
     """This function updates global dictionary of parameters with certain
     gc_bounds
     """
-    global gc_bounds # Not a good practice
+    global gc_bounds  # Not a good practice
     if len(gc_bounds) == 0:
         print('Default kept')
     elif len(gc_bounds) == 1:
@@ -96,7 +96,7 @@ def add_gc_bound():
 
 def add_len_bound():
     """This function adds lenght bounds to global dictionary of parameters"""
-    global length_bounds # Not a good practice
+    global length_bounds  # Not a good practice
     if len(length_bounds) == 0:
         print('Default kept')
     elif len(length_bounds) == 1:
@@ -122,7 +122,7 @@ def add_len_bound():
 
 
 def add_qual_threshhold():
-    """This function adds quality threshold for reads to global 
+    """This function adds quality threshold for reads to global
     dictionary of params
     """
     global quality_threshold
@@ -159,3 +159,4 @@ if __name__ == '__main__':
         print('Default False kept')
 # Finaly, main!
     main(input_fastq, output_file_prefix, **kwargs)
+    
