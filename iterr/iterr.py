@@ -161,6 +161,18 @@ def nested_list_unpacker(lst: list):
     unpacked = list(unpack_gen(lst))
     return unpacked
 
+class MyDict(dict):
+    '''A derivative class of a regular dictionary, with the exception of iteration giving both keys and values'''
+    
+    
+    def __iter__(self):
+        self.iterator = iter(self.items())
+        return self
+    
+    
+    def __next__(self):
+        return next(self.iterator)
+
 
 # In[6]:
 
@@ -183,3 +195,7 @@ if __name__ == "__main__":
     print('________________________LIST_UNPACKER________________________')
     test_list = [1, 2, 3, [1, 2, [3, 4, []], [1], [], 12, 3], [1, [5, 6]]]
     print(nested_list_unpacker(test_list))
+    print('________________________CUSTOM_DICT__________________________')
+    dct = MyDict({"a": 1, "b": 2, "c": 3, "d": 25})
+    for key, value in dct:
+        print(key, value) 

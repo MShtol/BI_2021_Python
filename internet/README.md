@@ -1,5 +1,5 @@
 ## Alternative GitHub API
-Flie `github_api.py` contains alternative GitHub API with four functions.
+Flie `github_api.py` contains alternative GitHub API with four functions. 
 
 ### Functions
 1. `get_user_info(username)` - returns a dictionary wuth name, organization, location, number of subscribers and number of repositories of iser (username)
@@ -10,4 +10,10 @@ Flie `github_api.py` contains alternative GitHub API with four functions.
 
 ### Requierements
 You can find them in requierements.txt and install with `pip install -r requirements.txt` in your terminal
+
+Worked for github in May 2022
+
+## Telegram logger
+In `tg_log_bot_wrapper.ipynb` you can find wrapper for functions that sends time of function work and log to a specific chat of your telegram bot.
+
 

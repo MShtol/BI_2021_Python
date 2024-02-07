@@ -1,28 +1,67 @@
-### seq_magic
-Script commands are passed on the Do step
-exit — exit script
-transcribe — transcribe sequence. If it's reverse transcription, corresponding message will be printed
-reverse — return reverse sequense
-complement — print complement sequense
-reverse complement — print reversed compliment sequense
+## Python Bioinformatics Institute study repo.
 
-On a Seq step input your sequense
+### basics1 
+Basic Python syntax on example of operations with nucleic acid sequences
 
-### fastq-filtrator
-It's a script to filter read from fastq files by length, quality and GC content
-input_fastq - path for the input file
+### basics2 
+Basic work with input on example of Curies-becqerels unit converter
 
-output_file_prefix - prefix for the output file. If save_filtered is False, will create prefix + '.fastq' postfix file. Otherwise will create two files with '_passed.fastq' and '_failed.fastq' postfixes.
+### FASTQ-filtrator 
+Usage of functions and try-except syntax on example of scripts that reads and filters FASTQ input data
 
-gc_bounds - upper or both boundaries for GC-filtration. Pass single value, two values separated by space or no values to keep default.
+### numpy_basics 
+Basic numpy syntax. Creating, multiplying arrays, calulating distances
 
-length_bounds - upper or both boundaries for sequence length. Pass single value, two values separated by space or no values to keep default.
+### FASTQC_project 
+Basic skillss in  developing group project with matplotlib plotting and generating html report. Replecting functionality of FASTQC tool.
+Link to project repository:
+https://github.com/keyreallkeyrealenko/FastQC_project
 
-quality_threshold - read with thi value or above will be kept
+### re
+Bsic usage of regular expressions in Python
 
-save_filtered - y/n if you want to have file with filtrated off values
 
 ### Functional.py
 Some function to explore functional programming in Python.
 Contains example of use of map(), filter() in form of their custom modifications
+
+
+### numpy_random
+Generation of random arrays with numpy and visulization with matplotlib
+
+
+### functional
+Custom implementations of map(), reduce(), filter(), partial()
+
+
+### sys_os
+Working with stdin. stdout via sys, os, argparse libs on example of standart unix tools replicas.
+
+
+### Classes
+Elements of OOP. Creation and usage of Classes, class inheritance, abstract classe and methods.
+
+
+### pandas
+Data selection. processing and plotting with panad and matplotlib.
+
+
+### internet
+Requests, stdout/stderr redirecting on example of cutom GitHub api and telegram bot logger,
+
+
+### sql_database
+Construction of database from excel file with methods for adding/deleting/selecting objects from database.
+
+
+### iterr
+Custom iterators and generators in Python.
+
+
+### wrappers
+Usage of custom and existing (`staticmethod`, `dataclass`, `lru_cache`) wrappers. Custom context manager. 
+
+
+### Multiprocessing & Nultithreading
+Here you can find python implementations of multiprocessing and multithreading via standart libraries.
 

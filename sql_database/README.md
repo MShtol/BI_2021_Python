@@ -15,6 +15,6 @@ Original Data contains 33 columns of usefull info:
 ## Classes
 - Amp -This class creates AMP object. It looks usefull because of sparcity of data for each AMP. E.g. ypu can find papers with a number of peptides with only couple of this features been tested.
 
-##Requirements
+## Requirements
 
 You can find them in requierements.txt and install with `pip install -r requirements.txt` in your terminal

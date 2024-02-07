@@ -1,39 +1,33 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[110]:
-
-
-# Наверное, весь код проверяющий инпут можно было засунуть в одну функцию
-# и распарсить чем-то вроде argparse,  чтобы было единообразно и аккуратно
+# Maybe, I should've used argparse and optimize and compactize all checks.
+# Using custom Class whole task could be written with much more elegance
 import os
 
 
-def main(input_fastq, output_file_prefix, gc_bounds=[0, 100],
-         length_bounds=[0, 2 ** 32], quality_threshold=0,
+def main(input_fastq, output_file_prefix, gc_bounds=(0, 100),
+         length_bounds=(0, 2 ** 32), quality_threshold=0,
          save_filtered=False):
-    data = open(input_fastq, 'r')
+    fastq_file = open(input_fastq, 'r')  # Not a good practice
     if save_filtered is False:
         out = open(output_file_prefix+'.fastq', 'w')
     else:
         out = open(output_file_prefix+'_passed.fastq', 'w')
         out2 = open(output_file_prefix+'_failed.fastq', 'w')
     while True:
-        read = pull_read(data)
+        read = pull_read(fastq_file)
         if len(read[0]) == 0:
             break
         info, seq, _, qual = read
         read_gc = gc_count(seq)
-        read_len = len(seq)
+        read_len = int(info.split('=')[-1])
         read_qual = mean_qual(qual)
         if ((gc_bounds[0] <= read_gc <= gc_bounds[1])
                 & (length_bounds[0] <= read_len <= length_bounds[1])
-                & (read_qual >= quality_threshold)):
+                & (read_qual > quality_threshold)):
             [out.write(i+'\n') for i in read]
         elif save_filtered is True:
             [out2.write(i+'\n') for i in read]
 
-    data.close()
+    fastq_file.close()
     out.close()
     if save_filtered is True:
         out2.close()
@@ -41,22 +35,41 @@ def main(input_fastq, output_file_prefix, gc_bounds=[0, 100],
 
 # Count GC comtent for read
 def gc_count(seq):
-    return (seq.upper().count('G')+seq.upper().count('C'))/len(seq)*100
+    """This function counts G and C in the given sequence
+    :param str seq: striing of nucleic acid sequence
+    :returns: percentage of G and C nucleotides
+    :rtype: float
+    """
+    return (seq.count('G')+seq.count('C'))/len(seq)*100
 
 
 # Read read from file
-def pull_read(data):
-    return [data.readline().strip() for i in range(4)]
+def pull_read(fastq_file):
+    """This funtion reads one chunk of fastq file
+    :param _io.TextIOWrapper fastq_file: file with fastq records
+    :returns: list of 4 strings for 1 fastq record
+    :rtype: list(str)
+    """
+
+    return [fastq_file.readline().strip() for i in range(4)]
 
 
 # calculate mean  quality
 def mean_qual(qual):
+    """Calculates average quality of fastq record
+    :param str qual: string with qualities of reading for corresponding nucleotides
+    :returns: avearge quality of record
+    :rtype: float
+    """
     return sum([ord(i) for i in qual])/len(qual)-33
 
 
 # Conditions for adding boundaries from input to kwargs
 def add_gc_bound():
-    global gc_bounds
+    """This function updates global dictionary of parameters with certain
+    gc_bounds
+    """
+    global gc_bounds  # Not a good practice
     if len(gc_bounds) == 0:
         print('Default kept')
     elif len(gc_bounds) == 1:
@@ -82,7 +95,8 @@ def add_gc_bound():
 
 
 def add_len_bound():
-    global length_bounds
+    """This function adds lenght bounds to global dictionary of parameters"""
+    global length_bounds  # Not a good practice
     if len(length_bounds) == 0:
         print('Default kept')
     elif len(length_bounds) == 1:
@@ -108,6 +122,9 @@ def add_len_bound():
 
 
 def add_qual_threshhold():
+    """This function adds quality threshold for reads to global
+    dictionary of params
+    """
     global quality_threshold
     try:
         kwargs['quality_threshold'] = int(quality_threshold)

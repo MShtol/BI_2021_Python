@@ -8,6 +8,7 @@ All scripts are provided in jupyter notebook format
 2. [Create class RNA with transcription and translation methods](#t2)
 3. [Class derived from set()](#t3)
 4. [Create Class for stats calculation of fasata files](#t4)
+5. [Create interfaces with abstract classes](#t5)
 
 <a name="t1"></a>
 ### Create class with constructor and couple of methods
@@ -62,3 +63,42 @@ Methods:
 * `tetra_distr` - plots tetramer frequencies
 * `which_nuc` - determines if sequences are DNA, RNA or somerhing else
 
+
+<a name="t5"></a>
+### Create interfaces with abstract classes
+System of classes for storage and processing of biological sequences.
+* class BiologicalSequence(ABC): An abstract class for biological sequences
+    Abstract methods:
+        __init__(): class constructor
+        __getitem__(): gets item by slice or index
+        __len__(): returns sequence length
+        __str__(): makes readable sequence version
+        __repr__(): for class representation
+        check_alphabet(): checks if sequence correspondes to class alphabet
+  
+  
+* class AminoNucSequence(BiologicalSequence): A class for implementation of BiologicalSequence interface
+
+* class NucleicAcidSequence(AminoNucSequence): A class for nucleic acid sequences
+    Methods:
+        complement(): makes coplement for nucleic acid
+        gc_content(): counts GC-content of nucleic acid
+  
+  
+* class DNASequence(NucleicAcidSequence): A class for DNA sequences
+    Attributes:
+        alphabet (dict): contains complement DNA nucleotides pairs
+    Methods:
+        transcribe(): transcribes nucleic acid sequence
+          
+          
+* class RNASequence(NucleicAcidSequence):'A class for RNA sequences
+    Attributes:
+        alphabet (dict): contains complement RNA nucleotides pairs
+  
+  
+* class AminoAcidSequence(AminoNucSequence): A class for amino acid sequences
+    Attributes:
+        alphabet (frozen): contains all amino acids
+    Methods:
+        extinction_coef(): calculates extinction coefficient for amino acid sequence
