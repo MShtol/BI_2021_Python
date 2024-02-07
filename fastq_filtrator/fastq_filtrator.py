@@ -159,4 +159,3 @@ if __name__ == '__main__':
         print('Default False kept')
 # Finaly, main!
     main(input_fastq, output_file_prefix, **kwargs)
-    
