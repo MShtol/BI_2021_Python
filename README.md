@@ -1,4 +1,4 @@
-## Python study repo.
+## Python Bioinformatics Institute study repo.
 
 ### basics1 
 Basic Python syntax on example of operations with nucleic acid sequences
